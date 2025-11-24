@@ -1,0 +1,32 @@
+name: Jordan Flip Bot
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"   # runs every 30 minutes
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Flip Bot
+        env:
+          DISCORD_WEBHOOK_URL: https://discord.com/api/webhooks/1394324157952557200/_KmWAGnW1ojVPHvyGq3qSCZhZdBbOJ6s8gdwLFU-J1iIXYpua7w_KkN8TX1NVmSFQJii
+        run: |
+          python ebay_tracker.py
