@@ -27,6 +27,6 @@ jobs:
 
       - name: Run Flip Bot
         env:
-          DISCORD_WEBHOOK_URL: https://discord.com/api/webhooks/1394324157952557200/_KmWAGnW1ojVPHvyGq3qSCZhZdBbOJ6s8gdwLFU-J1iIXYpua7w_KkN8TX1NVmSFQJii
+           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           python ebay_tracker.py

@@ -1,7 +1,9 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1394324157952557200/_KmWAGnW1ojVPHvyGq3qSCZhZdBbOJ6s8gdwLFU-J1iIXYpua7w_KkN8TX1NVmSFQJii"
+DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
+
 KEYWORD = "jordan"
 MAX_PRICE = 100
 REQUIRE_NEW = True  # Only show 'New' condition items
